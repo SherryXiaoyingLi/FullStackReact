@@ -1,10 +1,16 @@
 # FullStackReact
 
-## Run Application
+## Application
 
 1. run 'npm run dev' to start the server
 
 2. listens on localhost:5000
+
+3. MongoDB: cloud.mongodb.com
+
+4. GoogleProj(Oauth+Passport): console.developers.google.com
+
+5. Heroku 
 
 ## Routes
 
