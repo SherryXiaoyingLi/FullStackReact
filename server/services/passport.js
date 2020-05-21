@@ -32,9 +32,11 @@ passport.use(
         {
         clientID: keys.googleClientID,
         clientSecret: keys.googleClientSecret,
-        callbackURL: '/auth/google/callback' 
+        callbackURL: '/auth/google/callback', 
         // after user grant google permission, google will redirect to this url of the app
-        }, 
+        proxy: true // tell google strategy, if our app runs through any proxy (heroku uses proxy), that's fine, 
+        // don't change the callback url from https:// to http://
+    }, 
         (accessToken, refreshToken, profile, done)=>{
             // when everything w/ google authentication done (following the two routes below)
             // google gives back user information via here
