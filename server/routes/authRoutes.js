@@ -16,7 +16,7 @@ app.get("/auth/google", passport.authenticate('google', {scope: ['profile','emai
 
 app.get("/auth/google/callback", passport.authenticate('google'))
 // after receiving request with this url from google 
-// notice handling code like before, but in url actually also include the code sent back by google earlier
+// notice handling code like before (passport.authenticate('google')), but in url actually also include the code sent back by google 
 // so passport strategy will notice that and handle the request differetly
 
 app.get('/api/logout', (req, res)=>{
