@@ -14,15 +14,24 @@ app.get("/auth/google", passport.authenticate('google', {scope: ['profile','emai
 // normally when receive request handle with an error function as above
 // but now passport strategy handles for us, 'google' is a string tied to prev new GoogleStrategy, scope is what info app want to get about user from google
 
-app.get("/auth/google/callback", passport.authenticate('google'))
-// after receiving request with this url from google 
-// notice handling code like before (passport.authenticate('google')), but in url actually also include the code sent back by google 
-// so passport strategy will notice that and handle the request differetly
+app.get(
+    // after receiving request with this url from google 
+    // notice handling code like before (passport.authenticate('google')), but in url actually also include the code sent back by google 
+    // so passport strategy will notice that and handle the request differetly
+    "/auth/google/callback", 
+    passport.authenticate('google'),
+    // after passport.authenticate gets executed (came back fro OAuth flow), pass the request to the next handler
+    // res has a redirect function automatically
+    (req, res) => {
+        res.redirect('/surveys');
+    }
+);
 
 app.get('/api/logout', (req, res)=>{
     req.logout(); // function attached to req by passport automatically
     // it takes the cookie contained in it, and kill id associated with cookie
-    res.send(req.user); // send back to user that they are successfully logged out, since usr has been deleted, should be empty here!
+    // res.send(req.user); // send back to user that they are successfully logged out, since usr has been deleted, should be empty here!
+    res.redirect('/');
 })
 
 // test url

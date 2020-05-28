@@ -21,3 +21,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# env var
+#.env*
+# !!! do not put in .gitignore, heroku need these files for production build on frontend
