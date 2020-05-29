@@ -11,7 +11,9 @@ import reduxThunk from 'redux-thunk';
 // frontend module different from backend module, so can use import statement, backend uses require statement
 
 import App from './components/App';
-import reducers from './reducers';
+import reducers from './reducers'
+import axios from 'axios';
+window.axios = axios;
 
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 // 1st reducer (combined)

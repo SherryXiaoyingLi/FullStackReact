@@ -44,6 +44,8 @@ require('./routes/authRoutes')(app);
 // require gives back a function exported from authRoutes.js 
 // immediately call that function w/ argument app
 require('./routes/billingRoutes')(app);
+require('./routes/surveyRoutes')(app);
+
 // additional routing when in production env
 if (process.env.NODE_ENV === 'production') {
     // Express will serve up production assets like main.js or main.css file
