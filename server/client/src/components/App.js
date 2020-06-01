@@ -8,12 +8,11 @@ import {connect } from 'react-redux';
 import * as actions from '../actions';
 // way to take all the action defined and put them into actions
 
-// following shows syntax to write a functional component (not Header, an imported class component)
+// following shows syntax to write a functional component (not Header and SurveyNew, an imported class component)
 import Header from './Header';
 import Landing from './Landing';
-
-const Dashboard = () => <h2>Dashboard</h2>;
-const SurveyNew = () => <h2>SurveyNew</h2>;
+import Dashboard from './Dashboard';
+import SurveyNew from './surveys/SurveyNew';
 
 
 // const App = () => {
@@ -54,17 +53,15 @@ class App extends Component {
     // on frontend, need to specify for material.css at root div of application
     return (
 
-        <div className="container"> 
             <BrowserRouter>
-                <div>
+                <div className="container">
                     <Header />
                     <Route exact path = "/" component = {Landing}/> 
                     <Route exact path = "/surveys" component = {Dashboard}/>
                     <Route path = "/surveys/new" component = {SurveyNew}/>
                 </div>
             </BrowserRouter>
-        </div>
-        
+
     );
     }
 };

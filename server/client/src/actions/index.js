@@ -1,6 +1,6 @@
 // host action creators
 import axios from 'axios';
-import {FETCH_USER} from './types';
+import {FETCH_USER, FETCH_SURVEYS} from './types';
 
 // action creators (using redux-thunk and axios)
 export const fetchUser = () => async dispatch=> {
@@ -32,4 +32,19 @@ export const handleToken = (token) => async dispatch => {
     dispatch({type: FETCH_USER, payload: res.data});
     // assume get back same user model as before in fetchUser action (but backend post request handler upd db and user)
     // assume dispatch the same user model get back from the post request to update data state inside authReducer
+};
+
+export const submitSurvey = (values, history) => async dispatch => {
+    const res = await axios.post('/api/surveys', values);
+
+    // navigate back to dashboard, tho action creator initially doesn not know about react-router, withRouter helped in review to pass a history obj to the creator here
+    // and call push func to do the navigation
+    history.push('/surveys');
+    dispatch({type: FETCH_USER, payload: res.data});
+};
+
+export const fetchSurveys = () => async dispatch => {
+    const res = await axios.get('/api/surveys');
+
+    dispatch({type: FETCH_SURVEYS, payload: res.data});
 };
