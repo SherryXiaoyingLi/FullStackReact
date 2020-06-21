@@ -2,7 +2,7 @@
 
 ## Application
 
-1. run 'npm run dev' to start the express server and create-react-app server concurrently using react module
+1. run 'npm run dev' to start the express server and create-react-app server concurrently using react module (in dev mode also need start ngrok server)
 
 2. express server listens on localhost:5000
 
@@ -14,7 +14,7 @@ two remote MongoDB instances (one for prod, one for dev env) @ mongodb.com
 
 two google project (OAuth+Passport, one for prod, one for dev env) @ google developer console
 
-application (named invisible-power-36387 @ heroku) deployed to https://git.heroku.com/invisible-power-36387.git @ heroku.com and application (production) can be accessed at https://invisible-power-36387.herokuapp.com/
+application (named invisible-power-36387 @ heroku.com) continuously deployed to https://git.heroku.com/invisible-power-36387.git vis CircleCI and production can be accessed at https://invisible-power-36387.herokuapp.com/
 
 billing handled via Stripe (one test account)
 
