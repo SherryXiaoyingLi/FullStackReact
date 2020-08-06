@@ -24,7 +24,7 @@ class Payments extends Component {
                 
             > 
                 <button className = "btn">
-                    Donate Credits
+                    ADD Credits
                 </button>
             </StripeCheckout>
         );
